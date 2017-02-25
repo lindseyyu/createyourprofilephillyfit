@@ -1,0 +1,16 @@
+button {
+    color: #FFF;
+    background-color: #F78181;
+    border: none;
+    font-weight: bold;
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+form {
+    color: #000;
+    border: small solid black;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    
+}
