@@ -10,7 +10,11 @@ button {
 
 form {
     color: #000;
-    border: small solid black;
+    border: medium solid orchid;
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     
 }
+
+html {height: 100%}
+body {height: 100%; margin: 0; padding: 0}
+#map-canvas {height: 100%}

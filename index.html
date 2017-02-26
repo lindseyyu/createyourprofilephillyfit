@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 
 <html>
@@ -6,12 +7,71 @@
         <title> PhillyFit </title>
         <link rel= "stylesheet" type = "text/css" 
         href="mystyle.css">
+               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXchF73zTIxWq5f42kp0L3kpw6CfuvB3E&callback=initMap"
+  type="text/javascript"></script>
+            <script>
+        function myScript() {
+            document.getElementById("demo").innerHTML = "We found a match! \n Lindsey Yu (Age: 17, Tennis, Skill Level: 3, Location: lat: 39.8415, lng: -75.195 ). Only 10 miles away! ";
+            document.getElementById("button").style.display = "none";
+            document.getElementById("myForm").style.display = "none";
+        };
 
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+     };
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +  "<br>Longitude: " + position.coords.longitude;
+        };
+
+      function initialize()  {
+        var myLatLng = {lat: 39.9415, lng: -75.1995};
+        var myLatLng1 = {lat: 39.8415, lng: -75.195};
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'You'
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng1,
+          map: map,
+          title: 'Lindsey Yu is here!'
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+
+        </script>
     </head>
     
     <body> 
-        
-    <form> 
+
+
+    
+    <form id= "myForm" > 
         Name: <input type ="text" name="firstName" /> 
         <br>
         <br>
@@ -32,9 +92,25 @@
         </textarea>
         <br>
         <br>
-         <button type = "submit" value="Submit">Submit</button>
-        </form> 
+       
+        </form>
+        
+        <button id = "button" onclick = "myScript(); getLocation(); " >Click Me </button>  
+        <p id = "demo" ></p>
 
+ 
+
+        <button id = "button1" onclick="initialize(); pan()" >Show Map! </button>
+
+    
+        <div id= "map-canvas"/>
+
+
+
+
+
+       
+        
        
 
         </body> 
